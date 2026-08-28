@@ -20,6 +20,7 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: cz.miton.RoomAgent
         PRODUCT_NAME: Room Agent
+        PRODUCT_MODULE_NAME: RoomAgentApp
         TARGETED_DEVICE_FAMILY: "1"
         SUPPORTS_MACCATALYST: NO
         GENERATE_INFOPLIST_FILE: NO
