@@ -1,0 +1,54 @@
+name: Hardware compatibility report
+description: Report physically tested TV behavior for one model.
+title: "[hardware] "
+labels: [hardware, compatibility]
+body:
+  - type: markdown
+    attributes:
+      value: "Do not attach secrets.h, tv-connector.key, configured firmware, Wi-Fi names, or local addresses."
+  - type: input
+    id: model
+    attributes:
+      label: Exact TV model and region
+    validations:
+      required: true
+  - type: dropdown
+    id: profile
+    attributes:
+      label: Connector profile
+      options:
+        - lg-tv-ir-v1
+        - sony-bravia-ir-v1
+        - generic-usb-hid-v1
+        - lg-webos-hybrid-v1
+    validations:
+      required: true
+  - type: dropdown
+    id: emitter
+    attributes:
+      label: Output hardware
+      options:
+        - Built-in ATOMS3U IR emitter
+        - M5Stack Unit IR U002
+        - USB HID
+        - IR plus USB HID
+    validations:
+      required: true
+  - type: textarea
+    id: results
+    attributes:
+      label: Visible command results
+      description: List each tested key and whether the exact TV visibly accepted it.
+    validations:
+      required: true
+  - type: input
+    id: revision
+    attributes:
+      label: Firmware revision
+      description: Commit hash or release tag; do not attach a configured binary.
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Placement, power, and other notes

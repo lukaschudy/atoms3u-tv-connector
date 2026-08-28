@@ -1,0 +1,7 @@
+pairing.key
+iphone-token.txt
+iphone-devices.json
+display_endpoints.json
+*.wav
+__pycache__/
+.pytest_cache/

@@ -1,0 +1,51 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+**/pairing.key
+**/iphone-token.txt
+**/iphone-devices.json
+**/display_endpoints.json
+**/include/secrets.h
+.pio/
+*.pem
+*.key
+
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Downloaded speech models and caches
+.models/
+models/
+!room_agent/ios/RoomAgentApp/RoomAgentApp/Models/
+*.bin
+*.onnx
+*.gguf
+
+# Recordings and generated media
+*.wav
+*.mp3
+*.flac
+*.ogg
+
+# Runtime output
+*.log
+*.jsonl
+tmp/
+temp/
+.preflight-state/
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini

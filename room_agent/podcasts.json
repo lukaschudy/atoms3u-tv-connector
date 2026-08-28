@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "podcasts": [
+    {
+      "id": "hard_fork",
+      "title": "Hard Fork",
+      "youtube_channel_id": "UCZcR2SVWaGWNlMqPxvQS3vw",
+      "aliases": [
+        "hard fork",
+        "casey newton hard fork"
+      ]
+    },
+    {
+      "id": "platformer",
+      "title": "Platformer",
+      "youtube_channel_id": "UCaKZIS0BjZffyCfayy3ciCA",
+      "aliases": [
+        "platformer",
+        "casey newton platformer"
+      ]
+    }
+  ],
+  "ambiguous_aliases": {
+    "casey newton": [
+      "hard_fork",
+      "platformer"
+    ]
+  }
+}

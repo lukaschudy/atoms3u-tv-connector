@@ -1,0 +1,13 @@
+[Unit]
+Description=Room Voice Agent local Qwen intent server
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/voiceagent/llama-runtime-b10280
+ExecStart=/home/voiceagent/llama-runtime-b10280/llama-server -m /home/voiceagent/models/Qwen3.5-0.8B-Q4_K_M.gguf --no-repack -c 1024 -t 4 -tb 4 -np 1 --host 127.0.0.1 --port 8767 --jinja --reasoning off
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target

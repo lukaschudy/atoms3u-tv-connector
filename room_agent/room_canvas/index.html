@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Room Agent</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body data-state="STARTING">
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <main class="shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark">RA</span>
+          <div>
+            <p>MITON LABS</p>
+            <h1>Room Agent</h1>
+          </div>
+        </div>
+        <div class="privacy"><span></span> Local processing</div>
+      </header>
+
+      <section class="hero">
+        <div class="presence">
+          <div class="orb-wrap" aria-hidden="true">
+            <div class="orbit orbit-a"></div>
+            <div class="orbit orbit-b"></div>
+            <div class="orb"><span id="orb-label">READY</span></div>
+          </div>
+          <div class="wave" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <p class="eyebrow">CURRENT STATE</p>
+          <h2 id="state">Starting</h2>
+          <p id="detail" class="detail">Starting local services</p>
+        </div>
+
+        <div class="activity">
+          <section class="card transcript-card">
+            <div class="card-heading">
+              <span>LAST HEARD</span>
+              <span id="total-time" class="metric">—</span>
+            </div>
+            <p id="transcript" class="transcript">Say a command to begin.</p>
+            <div class="route">
+              <span class="route-label">ROUTE</span>
+              <span id="route">Waiting for intent</span>
+            </div>
+          </section>
+
+          <section class="card pipeline-card">
+            <div class="card-heading"><span>LOCAL PIPELINE</span><span>LIVE</span></div>
+            <ol class="pipeline">
+              <li data-stage="listening"><i></i><span>Listen</span><b id="time-listening">—</b></li>
+              <li data-stage="transcribing"><i></i><span>Transcribe</span><b id="time-transcribing">—</b></li>
+              <li data-stage="routing"><i></i><span>Understand</span><b id="time-routing">—</b></li>
+              <li data-stage="executing"><i></i><span>Act</span><b id="time-executing">—</b></li>
+            </ol>
+          </section>
+
+          <section class="result" id="result-panel">
+            <span>RESULT</span>
+            <p id="result">Ready for a voice command.</p>
+          </section>
+        </div>
+      </section>
+
+      <footer>
+        <span>ReSpeaker · Whisper · Qwen · Raspberry Pi 5</span>
+        <span id="connection">Canvas connected</span>
+      </footer>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>

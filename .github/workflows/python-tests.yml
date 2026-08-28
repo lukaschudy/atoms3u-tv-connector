@@ -1,0 +1,72 @@
+name: Python tests
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            python-version: "3.11"
+          - os: ubuntu-latest
+            python-version: "3.14"
+          - os: windows-latest
+            python-version: "3.11"
+          - os: windows-latest
+            python-version: "3.14"
+          - os: macos-latest
+            python-version: "3.14"
+    defaults:
+      run:
+        working-directory: room_agent
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: room_agent/requirements-windows.txt
+      - name: Install test dependencies
+        run: python -m pip install --disable-pip-version-check -r requirements-windows.txt
+      - name: Diagnose Windows ACL support
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: |
+          $path = Join-Path $env:RUNNER_TEMP "room-agent-acl-diagnostic.tmp"
+          try {
+            Set-Content -LiteralPath $path -Value "diagnostic"
+            $current = [Security.Principal.WindowsIdentity]::GetCurrent().User
+            $acl = New-Object Security.AccessControl.FileSecurity
+            $acl.SetOwner($current)
+            $acl.SetAccessRuleProtection($true, $false)
+            $rule = New-Object Security.AccessControl.FileSystemAccessRule(
+              $current,
+              [Security.AccessControl.FileSystemRights]::FullControl,
+              [Security.AccessControl.AccessControlType]::Allow
+            )
+            $acl.AddAccessRule($rule)
+            Set-Acl -LiteralPath $path -AclObject $acl
+            Write-Output "acl-diagnostic=passed"
+          } catch {
+            Write-Output ("acl-diagnostic-exception=" + $_.Exception.GetType().FullName)
+            Write-Output ("acl-diagnostic-id=" + $_.FullyQualifiedErrorId)
+            exit 1
+          } finally {
+            Remove-Item -LiteralPath $path -Force -ErrorAction SilentlyContinue
+          }
+      - name: Run test suite
+        run: python -m unittest -v

@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "settings": {
+    "probe_cache_seconds": 60
+  },
+  "endpoints": [
+    {
+      "id": "google_tv",
+      "name": "Google TV Streamer",
+      "kind": "android_tv",
+      "priority": 100,
+      "enabled": false,
+      "serial": "192.0.2.10:5555",
+      "host": "192.0.2.10",
+      "adb": "adb",
+      "connect_on_probe": true,
+      "apps": {
+        "youtube": "com.google.android.youtube.tv",
+        "netflix": "com.netflix.ninja"
+      }
+    },
+    {
+      "id": "apple_tv",
+      "name": "Conference Room Apple TV",
+      "kind": "apple_tv",
+      "priority": 90,
+      "enabled": false,
+      "host": "192.0.2.20",
+      "identifier": "00000000-0000-0000-0000-000000000000",
+      "atvremote": "/home/voiceagent/room-agent/.venv/bin/atvremote"
+    },
+    {
+      "id": "lg_tv",
+      "name": "Home LG webOS TV",
+      "kind": "lg_webos",
+      "priority": 110,
+      "enabled": false,
+      "host": "192.0.2.40",
+      "key_file": "/home/voiceagent/.config/room-agent/lg-webos.sqlite",
+      "python": "/home/voiceagent/room-agent/.venv/bin/python",
+      "helper": "/home/voiceagent/room-agent/lg_webos.py",
+      "without_ssl": false
+    },
+    {
+      "id": "samsung_tv",
+      "name": "Conference Room Samsung TV",
+      "kind": "samsung_tv",
+      "priority": 105,
+      "enabled": false,
+      "host": "192.0.2.30",
+      "port": 8002,
+      "token_file": "/home/voiceagent/.config/room-agent/samsung-token.txt",
+      "python": "/home/voiceagent/room-agent/.venv/bin/python",
+      "helper": "/home/voiceagent/room-agent/samsung_tizen.py"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+name: RoomAgentApp
+options:
+  bundleIdPrefix: cz.miton
+  deploymentTarget:
+    iOS: "26.0"
+  xcodeVersion: "26.0"
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    DEVELOPMENT_TEAM: ""
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+targets:
+  RoomAgentApp:
+    type: application
+    platform: iOS
+    sources:
+      - path: RoomAgentApp
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: cz.miton.RoomAgent
+        PRODUCT_NAME: Room Agent
+        TARGETED_DEVICE_FAMILY: "1"
+        SUPPORTS_MACCATALYST: NO
+        GENERATE_INFOPLIST_FILE: NO
+        CODE_SIGN_STYLE: Automatic
+    info:
+      path: RoomAgentApp/Info.plist
+      properties:
+        CFBundleDisplayName: Room Agent
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+        NSMicrophoneUsageDescription: Room Agent uses the microphone only while you issue a voice command.
+        NSSpeechRecognitionUsageDescription: Room Agent converts your spoken command to text before sending it to your paired computer.
+        NSCameraUsageDescription: Room Agent scans a one-use pairing QR code shown by your computer.
+        UIApplicationSupportsIndirectInputEvents: true
+        UILaunchScreen: {}
+  RoomAgentAppTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: RoomAgentAppTests
+    dependencies:
+      - target: RoomAgentApp
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: cz.miton.RoomAgentTests
+        GENERATE_INFOPLIST_FILE: YES
+schemes:
+  RoomAgentApp:
+    build:
+      targets:
+        RoomAgentApp: all
+    test:
+      gatherCoverageData: true
+      targets:
+        - RoomAgentAppTests

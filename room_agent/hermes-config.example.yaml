@@ -1,0 +1,75 @@
+# Restricted Hermes Agent profile for a 4 GB Raspberry Pi room assistant.
+# Copy to /home/voiceagent/.hermes/config.yaml after installing Hermes.
+model:
+  provider: openrouter
+  default: deepseek/deepseek-v4-flash
+  api_mode: chat_completions
+
+# Key-free search for the demo. Use browser tools when a result page must be
+# inspected; switch to Firecrawl/Tavily/Exa later if full extraction is needed.
+web:
+  search_backend: ddgs
+
+agent:
+  max_turns: 6
+  api_max_retries: 0
+  reasoning_effort: none
+  tool_use_enforcement: true
+  disabled_toolsets:
+    - web
+    - terminal
+    - file
+    - code_execution
+    - vision
+    - video
+    - image_gen
+    - video_gen
+    - bfl
+    - x_search
+    - tts
+    - skills
+    - todo
+    - context_engine
+    - session_search
+    - clarify
+    - delegation
+    - cronjob
+    - homeassistant
+    - spotify
+    - discord
+    - discord_admin
+    - yuanbao
+    - computer_use
+    - alfred
+
+# This explicit list is the API sidecar's capability boundary. Browser tools
+# launch only if a request actually needs interaction or disambiguation.
+platform_toolsets:
+  api_server:
+    - search
+    - browser
+    - memory
+
+memory:
+  memory_enabled: true
+  user_profile_enabled: true
+  write_approval: true
+
+tool_loop_guardrails:
+  warnings_enabled: true
+  hard_stop_enabled: true
+  warn_after:
+    exact_failure: 1
+    same_tool_failure: 2
+    idempotent_no_progress: 1
+  hard_stop_after:
+    exact_failure: 2
+    same_tool_failure: 3
+    idempotent_no_progress: 2
+  loop_caps:
+    max_web_searches: 2
+    max_subagents: 0
+
+gateway:
+  api_server:
+    max_concurrent_runs: 1

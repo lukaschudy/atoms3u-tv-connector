@@ -1,0 +1,53 @@
+name: iPhone app
+
+on:
+  pull_request:
+    paths:
+      - "room_agent/ios/RoomAgentApp/**"
+      - ".github/workflows/ios-app.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "room_agent/ios/RoomAgentApp/**"
+      - ".github/workflows/ios-app.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: macos-26
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - name: Install pinned XcodeGen
+        env:
+          XCODEGEN_SHA256: 4d9e34b62172d645eed6457cac13fc222569974098ef4ee9c3368bedf0196806
+          XCODEGEN_URL: >-
+            https://github.com/yonaskolb/XcodeGen/releases/download/2.46.0/xcodegen.zip
+        run: |
+          set -euo pipefail
+          archive="$RUNNER_TEMP/xcodegen.zip"
+          curl --proto '=https' --tlsv1.2 --fail --silent --show-error \
+            --location --retry 3 --output "$archive" "$XCODEGEN_URL"
+          printf '%s  %s\n' "$XCODEGEN_SHA256" "$archive" | shasum -a 256 --check
+          unzip -q "$archive" -d "$RUNNER_TEMP"
+          echo "$RUNNER_TEMP/xcodegen/bin" >> "$GITHUB_PATH"
+      - name: Generate Xcode project
+        working-directory: room_agent/ios/RoomAgentApp
+        run: xcodegen generate
+      - name: Build without signing
+        working-directory: room_agent/ios/RoomAgentApp
+        run: >-
+          xcodebuild
+          -project RoomAgentApp.xcodeproj
+          -scheme RoomAgentApp
+          -configuration Debug
+          -sdk iphonesimulator
+          -destination 'generic/platform=iOS Simulator'
+          CODE_SIGNING_ALLOWED=NO
+          build

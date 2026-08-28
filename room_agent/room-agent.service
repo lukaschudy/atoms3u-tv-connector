@@ -1,0 +1,16 @@
+[Unit]
+Description=Room Voice Agent hands-free media session
+After=network-online.target pipewire.service room-agent-hermes.service
+Wants=network-online.target pipewire.service room-agent-hermes.service
+
+[Service]
+Type=simple
+WorkingDirectory=/home/voiceagent/room-agent
+ExecStart=/usr/bin/python3 -u /home/voiceagent/room-agent/pi_hub.py --hands-free --iphone-gateway --language en --llm-url http://127.0.0.1:8767 --room-canvas
+Restart=always
+RestartSec=5
+TimeoutStopSec=15
+UMask=0077
+
+[Install]
+WantedBy=default.target

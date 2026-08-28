@@ -1,0 +1,17 @@
+[Unit]
+Description=Restricted Hermes Agent planning sidecar
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/voiceagent
+EnvironmentFile=/home/voiceagent/.hermes/.env
+ExecStart=/home/voiceagent/.local/bin/hermes gateway
+Restart=on-failure
+RestartSec=5
+MemoryHigh=1200M
+MemoryMax=1600M
+
+[Install]
+WantedBy=default.target

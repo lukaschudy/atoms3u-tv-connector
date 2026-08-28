@@ -1,0 +1,4 @@
+pyusb>=1.2,<2
+bscpylgtv==0.5.2
+samsungtvws==3.0.3
+bleak==3.0.2

@@ -1,0 +1,2 @@
+# Tooling used to compile and flash the ATOMS3U firmware.
+platformio==6.1.19

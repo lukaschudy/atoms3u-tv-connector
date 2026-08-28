@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 430" role="img" aria-labelledby="title desc">
+  <title id="title">iPhone Action Button TV voice-control flow</title>
+  <desc id="desc">The iPhone Action Button sends voice through private HTTPS to a background Windows bridge, then a signed Wi-Fi command reaches the ATOMS3U and controls the TV over infrared or USB.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#38bdf8"/>
+    </marker>
+    <filter id="shadow"><feDropShadow dx="0" dy="7" stdDeviation="8" flood-opacity="0.35"/></filter>
+  </defs>
+  <rect width="1400" height="430" rx="22" fill="url(#bg)"/>
+  <g opacity="0.15" stroke="#64748b"><path d="M0 70H1400M0 140H1400M0 210H1400M0 280H1400M0 350H1400"/><path d="M100 0V430M200 0V430M300 0V430M400 0V430M500 0V430M600 0V430M700 0V430M800 0V430M900 0V430M1000 0V430M1100 0V430M1200 0V430M1300 0V430"/></g>
+  <text x="58" y="52" fill="#f8fafc" font-family="Segoe UI, sans-serif" font-size="24" font-weight="700">Your voice becomes a TV action</text>
+  <text x="58" y="78" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="14">Phone-first interaction · private transport · authenticated local control</text>
+
+  <g fill="none" stroke="#38bdf8" stroke-width="4" marker-end="url(#arrow)">
+    <path d="M330 225H425"/><path d="M690 225H785"/><path d="M1045 225H1140"/>
+  </g>
+  <g fill="#bae6fd" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600" text-anchor="middle">
+    <text x="377" y="207">PRIVATE HTTPS</text><text x="738" y="207">SIGNED WI-FI</text><text x="1092" y="207">IR / USB</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="50" y="105" width="280" height="245" rx="28" fill="#082f49" stroke="#38bdf8" stroke-width="3"/>
+    <rect x="85" y="128" width="82" height="145" rx="18" fill="#020617" stroke="#7dd3fc" stroke-width="3"/>
+    <rect x="118" y="138" width="18" height="4" rx="2" fill="#64748b"/>
+    <circle cx="126" cy="251" r="5" fill="#38bdf8"/>
+    <circle cx="126" cy="196" r="29" fill="#0ea5e9" opacity="0.25"/>
+    <path d="M126 181v30m-12-20v10m24-10v10" stroke="#7dd3fc" stroke-width="5" stroke-linecap="round"/>
+    <text x="190" y="158" fill="#7dd3fc" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">PRIMARY INTERFACE</text>
+    <text x="190" y="194" fill="#f8fafc" font-family="Segoe UI, sans-serif" font-size="24" font-weight="700">iPhone</text>
+    <text x="190" y="224" fill="#f8fafc" font-family="Segoe UI, sans-serif" font-size="20" font-weight="600">Action Button</text>
+    <text x="190" y="265" fill="#bae6fd" font-family="Segoe UI, sans-serif" font-size="14">Hold · speak · release</text>
+    <text x="190" y="292" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="12">Shortcut or native app</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="425" y="145" width="265" height="160" rx="18" fill="#132238" stroke="#64748b" stroke-width="2"/>
+    <rect x="458" y="176" width="54" height="43" rx="5" fill="#020617" stroke="#94a3b8" stroke-width="2"/>
+    <path d="M470 232h30m-15-13v13" stroke="#94a3b8" stroke-width="3"/>
+    <text x="530" y="183" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">BACKGROUND SERVICE</text>
+    <text x="530" y="215" fill="#f8fafc" font-family="Segoe UI, sans-serif" font-size="20" font-weight="700">Windows bridge</text>
+    <text x="530" y="246" fill="#cbd5e1" font-family="Segoe UI, sans-serif" font-size="13">Interprets bounded intents</text>
+    <text x="530" y="271" fill="#64748b" font-family="Segoe UI, sans-serif" font-size="12">No interaction after setup</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="785" y="145" width="260" height="160" rx="18" fill="#052e2b" stroke="#34d399" stroke-width="2"/>
+    <rect x="817" y="181" width="55" height="55" rx="9" fill="#020617" stroke="#6ee7b7" stroke-width="2"/>
+    <circle cx="844" cy="208" r="12" fill="#10b981" opacity="0.5"/>
+    <path d="M824 250h40" stroke="#6ee7b7" stroke-width="4" stroke-linecap="round"/>
+    <text x="892" y="184" fill="#6ee7b7" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">ROOM HARDWARE</text>
+    <text x="892" y="216" fill="#f8fafc" font-family="Segoe UI, sans-serif" font-size="21" font-weight="700">ATOMS3U</text>
+    <text x="892" y="247" fill="#a7f3d0" font-family="Segoe UI, sans-serif" font-size="13">HMAC-authenticated</text>
+    <text x="892" y="272" fill="#64748b" font-family="Segoe UI, sans-serif" font-size="12">Optional Unit IR U002</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1140" y="145" width="210" height="160" rx="18" fill="#2e1f05" stroke="#fbbf24" stroke-width="2"/>
+    <rect x="1172" y="178" width="146" height="86" rx="7" fill="#020617" stroke="#fde68a" stroke-width="3"/>
+    <path d="M1215 280h60m-30-16v16" stroke="#fde68a" stroke-width="4"/>
+    <text x="1245" y="214" fill="#fef3c7" font-family="Segoe UI, sans-serif" font-size="22" font-weight="700" text-anchor="middle">TV</text>
+    <text x="1245" y="239" fill="#fcd34d" font-family="Segoe UI, sans-serif" font-size="12" text-anchor="middle">apps · search · remote keys</text>
+  </g>
+
+  <text x="700" y="397" text-anchor="middle" fill="#64748b" font-family="Segoe UI, sans-serif" font-size="12">Normal use starts and ends on the phone. The computer is invisible infrastructure.</text>
+</svg>

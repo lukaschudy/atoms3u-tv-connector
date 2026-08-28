@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Room Agent Browser Kiosk Helper",
+  "version": "1.1.0",
+  "description": "Completes Google/YouTube consent and assists allowlisted kiosk actions.",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://www.google.com/*",
+        "https://consent.youtube.com/*",
+        "https://consent.google.com/*"
+      ],
+      "js": ["content.js"],
+      "all_frames": true,
+      "run_at": "document_idle"
+    }
+  ]
+}
