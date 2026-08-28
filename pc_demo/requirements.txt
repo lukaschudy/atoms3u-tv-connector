@@ -1,5 +1,5 @@
 faster-whisper>=1.1,<2
 numpy>=1.26,<3
-python-dotenv>=1.0,<2
+python-dotenv>=1.2.3,<2
 requests>=2.32,<3
 sounddevice>=0.5,<1
