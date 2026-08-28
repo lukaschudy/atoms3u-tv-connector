@@ -96,21 +96,41 @@ actor RoomAgentClient {
         )
     }
 
-    func send(_ transcript: String, using credentials: RoomAgentCredentials) async throws -> RoomAgentCommandResponse {
+    static func makeCommandRequest(
+        transcript: String,
+        using credentials: RoomAgentCredentials,
+        now: Date = Date(),
+        requestID: UUID = UUID()
+    ) throws -> URLRequest {
         let cleaned = transcript.split(whereSeparator: \.isWhitespace).joined(separator: " ")
         guard !cleaned.isEmpty, cleaned.count <= 500 else {
             throw RoomAgentClientError.rejected("The voice command was empty or too long.")
         }
+        let requestIDText = requestID.uuidString.lowercased()
+        let formatter = ISO8601DateFormatter()
+        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+
         var request = URLRequest(url: credentials.commandsURL)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(credentials.accessToken)", forHTTPHeaderField: "Authorization")
-        let requestID = UUID().uuidString.lowercased()
+        request.setValue(formatter.string(from: now), forHTTPHeaderField: "X-Room-Agent-Sent-At")
         request.httpBody = try JSONSerialization.data(withJSONObject: [
             "version": 1,
-            "request_id": requestID,
+            "request_id": requestIDText,
             "text": cleaned,
         ])
+        return request
+    }
+
+    func send(_ transcript: String, using credentials: RoomAgentCredentials) async throws -> RoomAgentCommandResponse {
+        let requestID = UUID()
+        let request = try Self.makeCommandRequest(
+            transcript: transcript,
+            using: credentials,
+            requestID: requestID
+        )
+        let requestIDText = requestID.uuidString.lowercased()
         let (data, response) = try await session.data(for: request)
         guard data.count <= maximumResponseBytes else {
             throw RoomAgentClientError.invalidResponse
@@ -128,7 +148,7 @@ actor RoomAgentClient {
         guard
             decoded.version == 1,
             decoded.status == "executed",
-            decoded.requestID.caseInsensitiveCompare(requestID) == .orderedSame
+            decoded.requestID.caseInsensitiveCompare(requestIDText) == .orderedSame
         else {
             throw RoomAgentClientError.invalidResponse
         }
