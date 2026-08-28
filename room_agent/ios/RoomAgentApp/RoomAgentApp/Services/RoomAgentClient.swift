@@ -97,7 +97,7 @@ actor RoomAgentClient {
     }
 
     static func makeCommandRequest(
-        transcript: String,
+        _ transcript: String,
         using credentials: RoomAgentCredentials,
         now: Date = Date(),
         requestID: UUID = UUID()
@@ -126,7 +126,7 @@ actor RoomAgentClient {
     func send(_ transcript: String, using credentials: RoomAgentCredentials) async throws -> RoomAgentCommandResponse {
         let requestID = UUID()
         let request = try Self.makeCommandRequest(
-            transcript: transcript,
+            transcript,
             using: credentials,
             requestID: requestID
         )
