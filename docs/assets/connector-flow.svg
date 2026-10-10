@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
   <title id="title">How the voice-controlled TV connector works</title>
-  <desc id="desc">An iPhone sends a voice request to a Windows bridge, which sends an authenticated command to an ATOMS3U that controls the television.</desc>
+  <desc id="desc">An iPhone sends a voice request to an agent host running on Windows or Linux, which sends an authenticated command to an ATOMS3U that controls the television.</desc>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
       <path d="M0 0L10 5L0 10Z" fill="#111111"/>
@@ -23,14 +23,17 @@
   <text x="177" y="202" text-anchor="middle" fill="#111111" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">iPhone</text>
   <text x="177" y="228" text-anchor="middle" fill="#111111" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15">Action Button</text>
 
-  <!-- Windows bridge -->
+  <!-- Agent host -->
   <g transform="translate(376 68)" fill="none" stroke="#111111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="17" y="0" width="116" height="78" rx="6"/>
-    <line x1="75" y1="78" x2="75" y2="98"/>
-    <line x1="47" y1="98" x2="103" y2="98"/>
+    <rect x="22" y="2" width="106" height="40" rx="6"/>
+    <rect x="22" y="58" width="106" height="40" rx="6"/>
+    <circle cx="110" cy="22" r="4" fill="#111111" stroke="none"/>
+    <circle cx="110" cy="78" r="4" fill="#111111" stroke="none"/>
+    <line x1="37" y1="22" x2="79" y2="22"/>
+    <line x1="37" y1="78" x2="79" y2="78"/>
   </g>
-  <text x="451" y="202" text-anchor="middle" fill="#111111" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">Windows</text>
-  <text x="451" y="228" text-anchor="middle" fill="#111111" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15">voice bridge</text>
+  <text x="451" y="202" text-anchor="middle" fill="#111111" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">Agent host</text>
+  <text x="451" y="228" text-anchor="middle" fill="#111111" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15">Windows or Linux</text>
 
   <!-- ATOMS3U -->
   <g transform="translate(650 61)" fill="none" stroke="#111111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
