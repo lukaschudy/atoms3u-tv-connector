@@ -40,7 +40,7 @@ jobs:
       - name: Generate Xcode project
         working-directory: room_agent/ios/RoomAgentApp
         run: xcodegen generate
-      - name: Build without signing
+      - name: Run app and security tests
         working-directory: room_agent/ios/RoomAgentApp
         run: >-
           xcodebuild
@@ -48,6 +48,6 @@ jobs:
           -scheme RoomAgentApp
           -configuration Debug
           -sdk iphonesimulator
-          -destination 'generic/platform=iOS Simulator'
+          -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=latest'
           CODE_SIGNING_ALLOWED=NO
-          build
+          test
