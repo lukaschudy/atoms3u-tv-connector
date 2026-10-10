@@ -92,29 +92,6 @@ jobs:
           pio run
           -d firmware/atoms3u_tv_connector
           -e "$BUILD_ENVIRONMENT"
-      - name: Package compile-only artifact
-        env:
-          ARTIFACT_NAME: ${{ matrix.artifact }}
-          BUILD_ENVIRONMENT: ${{ matrix.environment }}
-          CONNECTOR_PROFILE: ${{ matrix.profile }}
-          SOURCE_COMMIT: ${{ github.sha }}
-        run: |
-          output="artifacts/$ARTIFACT_NAME"
-          build="firmware/atoms3u_tv_connector/.pio/build/$BUILD_ENVIRONMENT"
-          mkdir -p "$output"
-          cp "$build/firmware.bin" "$output/"
-          cp "$build/firmware.elf" "$output/"
-          printf 'source_commit=%s\nenvironment=%s\nprofile=%s\ncredentials=compile-only placeholders\n' \
-            "$SOURCE_COMMIT" "$BUILD_ENVIRONMENT" "$CONNECTOR_PROFILE" \
-            > "$output/BUILD-MANIFEST.txt"
-          (cd "$output" && sha256sum firmware.bin firmware.elf > SHA256SUMS)
-      - name: Upload compile-only artifact
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
-        with:
-          name: atoms3u-${{ matrix.artifact }}-${{ github.sha }}
-          path: room_agent/artifacts/${{ matrix.artifact }}/
-          if-no-files-found: error
-          retention-days: 14
 
   native-contract-tests:
     runs-on: ubuntu-latest
