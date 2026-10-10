@@ -1,119 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 390" role="img" aria-labelledby="title desc">
   <title id="title">Voice command to television action</title>
-  <desc id="desc">A four-stage flow. The iPhone captures a spoken request, a Windows bridge turns it into a bounded action, an ATOMS3U authenticates and executes the command, and the television receives infrared or USB HID input.</desc>
+  <desc id="desc">Four steps connect an iPhone voice request to a television: capture, interpret, authenticate and execute.</desc>
   <defs>
-    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#07101d"/>
-      <stop offset="1" stop-color="#0f1b2d"/>
-    </linearGradient>
-    <linearGradient id="phoneCard" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0c3550"/>
-      <stop offset="1" stop-color="#0b2539"/>
-    </linearGradient>
-    <linearGradient id="deviceCard" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#123c36"/>
-      <stop offset="1" stop-color="#0c2928"/>
-    </linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
-      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.32"/>
-    </filter>
-    <marker id="arrowBlue" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto">
-      <path d="M1 1L11 6L1 11Z" fill="#38bdf8"/>
-    </marker>
-    <marker id="arrowGreen" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto">
-      <path d="M1 1L11 6L1 11Z" fill="#34d399"/>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#64748b"/>
     </marker>
   </defs>
 
-  <rect width="1200" height="620" rx="28" fill="url(#background)"/>
-  <circle cx="1090" cy="40" r="220" fill="#0ea5e9" opacity="0.05"/>
-  <circle cx="120" cy="620" r="260" fill="#10b981" opacity="0.04"/>
+  <rect width="1200" height="390" rx="24" fill="#f8fafc"/>
+  <text x="54" y="57" fill="#0f172a" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="27" font-weight="750">Voice to TV, in four steps</text>
+  <text x="54" y="84" fill="#64748b" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14">Hold the Action Button, speak, and let the connector handle the rest.</text>
 
-  <text x="60" y="64" fill="#f8fafc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="31" font-weight="750">Say it. The TV does it.</text>
-  <text x="60" y="96" fill="#94a3b8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16">One phone interaction, with a private and bounded control path underneath.</text>
+  <path d="M300 203H352" fill="none" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M574 203H626" fill="none" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M848 203H900" fill="none" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow)"/>
 
-  <g transform="translate(60 126)">
-    <rect width="1080" height="70" rx="20" fill="#0b2237" stroke="#1f4b68" stroke-width="1.5"/>
-    <circle cx="38" cy="35" r="20" fill="#0ea5e9"/>
-    <rect x="34" y="22" width="8" height="20" rx="4" fill="#e0f2fe"/>
-    <path d="M28 35a10 10 0 0 0 20 0M38 45v8M31 53h14" fill="none" stroke="#e0f2fe" stroke-width="2.5" stroke-linecap="round"/>
-    <text x="72" y="30" fill="#7dd3fc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.3">VOICE REQUEST</text>
-    <text x="72" y="52" fill="#f8fafc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19" font-weight="600">“Open YouTube and play Never Gonna Give You Up.”</text>
-    <text x="1040" y="42" text-anchor="end" fill="#64748b" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13">hold · speak · release</text>
+  <g transform="translate(54 120)">
+    <rect width="246" height="166" rx="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <circle cx="29" cy="29" r="15" fill="#2563eb"/>
+    <text x="29" y="34" text-anchor="middle" fill="#ffffff" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="750">1</text>
+    <rect x="28" y="61" width="34" height="57" rx="8" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+    <circle cx="45" cy="109" r="2.5" fill="#2563eb"/>
+    <text x="82" y="72" fill="#2563eb" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="750" letter-spacing="1">CAPTURE</text>
+    <text x="82" y="101" fill="#0f172a" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20" font-weight="750">iPhone</text>
+    <text x="82" y="125" fill="#334155" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14">Action Button</text>
+    <text x="28" y="148" fill="#64748b" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12">Speech becomes a request</text>
   </g>
 
-  <!-- Trust zones -->
-  <rect x="38" y="224" width="566" height="294" rx="24" fill="#0b1828" stroke="#1e3a52" stroke-width="1.5" stroke-dasharray="7 7"/>
-  <text x="62" y="254" fill="#64748b" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2">PERSONAL DEVICES · PRIVATE TAILSCALE HTTPS</text>
-  <rect x="620" y="224" width="542" height="294" rx="24" fill="#0b1d1d" stroke="#245447" stroke-width="1.5" stroke-dasharray="7 7"/>
-  <text x="644" y="254" fill="#64748b" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2">HOME NETWORK · NO VENDOR CLOUD</text>
-
-  <!-- Connections -->
-  <path d="M288 373H340" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" marker-end="url(#arrowBlue)"/>
-  <path d="M576 373H646" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" marker-end="url(#arrowBlue)"/>
-  <path d="M882 373H934" stroke="#34d399" stroke-width="4" stroke-linecap="round" marker-end="url(#arrowGreen)"/>
-  <text x="314" y="350" text-anchor="middle" fill="#7dd3fc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="700">TEXT</text>
-  <text x="611" y="342" text-anchor="middle" fill="#7dd3fc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700">SIGNED</text>
-  <text x="611" y="356" text-anchor="middle" fill="#7dd3fc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700">WI-FI</text>
-  <text x="908" y="342" text-anchor="middle" fill="#6ee7b7" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700">IR OR</text>
-  <text x="908" y="356" text-anchor="middle" fill="#6ee7b7" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700">USB HID</text>
-
-  <!-- Stage 1 -->
-  <g transform="translate(62 280)" filter="url(#shadow)">
-    <rect width="226" height="188" rx="22" fill="url(#phoneCard)" stroke="#38bdf8" stroke-width="2"/>
-    <circle cx="30" cy="30" r="17" fill="#0ea5e9"/>
-    <text x="30" y="36" text-anchor="middle" fill="#ffffff" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="800">1</text>
-    <rect x="27" y="64" width="42" height="73" rx="10" fill="#06111d" stroke="#7dd3fc" stroke-width="2"/>
-    <circle cx="48" cy="126" r="3" fill="#38bdf8"/>
-    <text x="86" y="78" fill="#7dd3fc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="1">CAPTURE</text>
-    <text x="86" y="105" fill="#f8fafc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20" font-weight="750">iPhone</text>
-    <text x="86" y="129" fill="#f8fafc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16" font-weight="600">Action Button</text>
-    <text x="25" y="164" fill="#bae6fd" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13">Turns speech into a request</text>
+  <g transform="translate(328 120)">
+    <rect width="246" height="166" rx="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <circle cx="29" cy="29" r="15" fill="#2563eb"/>
+    <text x="29" y="34" text-anchor="middle" fill="#ffffff" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="750">2</text>
+    <rect x="28" y="65" width="43" height="33" rx="4" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+    <path d="M38 110h23M49.5 98v12" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="88" y="72" fill="#2563eb" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="750" letter-spacing="1">INTERPRET</text>
+    <text x="88" y="96" fill="#0f172a" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" font-weight="750">Windows</text>
+    <text x="88" y="119" fill="#0f172a" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" font-weight="750">bridge</text>
+    <text x="28" y="148" fill="#64748b" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12">Selects an allowlisted action</text>
   </g>
 
-  <!-- Stage 2 -->
-  <g transform="translate(350 280)" filter="url(#shadow)">
-    <rect width="226" height="188" rx="22" fill="#152338" stroke="#64748b" stroke-width="2"/>
-    <circle cx="30" cy="30" r="17" fill="#475569"/>
-    <text x="30" y="36" text-anchor="middle" fill="#ffffff" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="800">2</text>
-    <rect x="26" y="65" width="50" height="40" rx="6" fill="#07101d" stroke="#94a3b8" stroke-width="2"/>
-    <path d="M36 117h30M51 105v12" stroke="#94a3b8" stroke-width="3" stroke-linecap="round"/>
-    <text x="92" y="78" fill="#94a3b8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="1">INTERPRET</text>
-    <text x="92" y="101" fill="#f8fafc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" font-weight="750">Windows</text>
-    <text x="92" y="124" fill="#f8fafc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" font-weight="750">voice bridge</text>
-    <text x="25" y="151" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13">Maps language to allowlisted</text>
-    <text x="25" y="170" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13">keys, text and waits</text>
+  <g transform="translate(602 120)">
+    <rect width="246" height="166" rx="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <circle cx="29" cy="29" r="15" fill="#2563eb"/>
+    <text x="29" y="34" text-anchor="middle" fill="#ffffff" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="750">3</text>
+    <rect x="28" y="64" width="44" height="44" rx="8" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+    <circle cx="50" cy="86" r="9" fill="#2563eb" opacity="0.18"/>
+    <circle cx="50" cy="86" r="4" fill="#2563eb"/>
+    <text x="89" y="72" fill="#2563eb" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="750" letter-spacing="1">AUTHENTICATE</text>
+    <text x="89" y="101" fill="#0f172a" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20" font-weight="750">ATOMS3U</text>
+    <text x="28" y="148" fill="#64748b" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12">Verifies and emits the command</text>
   </g>
 
-  <!-- Stage 3 -->
-  <g transform="translate(656 280)" filter="url(#shadow)">
-    <rect width="226" height="188" rx="22" fill="url(#deviceCard)" stroke="#34d399" stroke-width="2"/>
-    <circle cx="30" cy="30" r="17" fill="#10b981"/>
-    <text x="30" y="36" text-anchor="middle" fill="#ffffff" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="800">3</text>
-    <rect x="27" y="65" width="51" height="51" rx="10" fill="#061412" stroke="#6ee7b7" stroke-width="2"/>
-    <circle cx="52.5" cy="90.5" r="11" fill="#10b981" opacity="0.55"/>
-    <text x="94" y="78" fill="#6ee7b7" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="1">AUTHENTICATE</text>
-    <text x="94" y="106" fill="#f8fafc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20" font-weight="750">ATOMS3U</text>
-    <text x="25" y="146" fill="#a7f3d0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13">Verifies HMAC, timestamp</text>
-    <text x="25" y="165" fill="#a7f3d0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13">and replay protection</text>
+  <g transform="translate(876 120)">
+    <rect width="270" height="166" rx="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <circle cx="29" cy="29" r="15" fill="#2563eb"/>
+    <text x="29" y="34" text-anchor="middle" fill="#ffffff" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="750">4</text>
+    <rect x="29" y="62" width="57" height="39" rx="4" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+    <path d="M44 111h27M57.5 101v10" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="103" y="72" fill="#2563eb" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="750" letter-spacing="1">EXECUTE</text>
+    <text x="103" y="101" fill="#0f172a" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20" font-weight="750">Television</text>
+    <text x="29" y="148" fill="#64748b" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12">Apps, search and remote controls</text>
   </g>
 
-  <!-- Stage 4 -->
-  <g transform="translate(934 280)" filter="url(#shadow)">
-    <rect width="204" height="188" rx="22" fill="#35290c" stroke="#fbbf24" stroke-width="2"/>
-    <circle cx="30" cy="30" r="17" fill="#d97706"/>
-    <text x="30" y="36" text-anchor="middle" fill="#ffffff" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="800">4</text>
-    <rect x="28" y="65" width="148" height="77" rx="7" fill="#07101d" stroke="#fde68a" stroke-width="2.5"/>
-    <path d="M75 154h54M102 142v12" stroke="#fde68a" stroke-width="3.5" stroke-linecap="round"/>
-    <text x="102" y="99" text-anchor="middle" fill="#fef3c7" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="23" font-weight="800">TV</text>
-    <text x="102" y="122" text-anchor="middle" fill="#fcd34d" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12">apps · search · controls</text>
-    <text x="102" y="176" text-anchor="middle" fill="#fde68a" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13">Executes the action</text>
-  </g>
-
-  <g transform="translate(60 550)">
-    <rect width="1080" height="38" rx="12" fill="#0b1727" stroke="#1e293b"/>
-    <text x="540" y="24" text-anchor="middle" fill="#94a3b8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13">
-      Private transport  ·  allowlisted actions  ·  HMAC-SHA256  ·  replay protection  ·  no arbitrary code execution
-    </text>
-  </g>
+  <line x1="54" y1="321" x2="1146" y2="321" stroke="#e2e8f0"/>
+  <text x="600" y="354" text-anchor="middle" fill="#64748b" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13">Private transport · authenticated commands · no vendor cloud</text>
 </svg>
